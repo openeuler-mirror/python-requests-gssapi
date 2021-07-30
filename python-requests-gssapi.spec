@@ -3,7 +3,7 @@
 
 Name:           python-%{sname}
 Version:        1.2.2
-Release:        1
+Release:        2
 Summary:        A GSSAPI/SPNEGO authentication handler for python-requests
 
 License:        ISC
@@ -13,7 +13,6 @@ BuildArch:      noarch
 
 # Patches
 
-BuildRequires:  git-core
 BuildRequires:  python3-devel
 BuildRequires:  python3-gssapi
 BuildRequires:  python3-mock
@@ -37,7 +36,7 @@ Requires:       python3-requests
 %description -n python3-%{sname} %_description
 
 %prep
-%autosetup -S git -n %{sname}-%{version}
+%autosetup -n %{sname}-%{version} -p1
 
 %build
 
@@ -56,5 +55,8 @@ Requires:       python3-requests
 
 
 %changelog
+* Fri Jul 30 2021 chenyanpanHW <chenyanpan@huawei.com> - 1.2.2-2
+- DESC: delete -S git from %autosetup, and delete BuildRequires git-core
+
 * Wed Jun 23 2021 liufeng <liufeng@kylinos.cn> - 1.2.2-1
 - Package init
